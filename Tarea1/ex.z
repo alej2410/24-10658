@@ -1,3 +1,3 @@
-Z => Z => Z de_morgan1 := 5;
+Z => Z => Z de_morgan1 := fn(Z P) -> fn(Z Q) -> if(lt(1)(P),1,if(lt(1)(Q),1,0));
 Z => Z => Z de_morgan2 := 5;
 Z => Z succ := 5;
