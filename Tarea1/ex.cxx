@@ -9,6 +9,7 @@ int main(){
 
 double mean(vector<double> v){
     if (v.empty()) return 0.0;
+  
     double sum = 0.0;
     for(double x:v){
         sum += x;
@@ -19,6 +20,7 @@ double mean(vector<double> v){
 double variance(vector<double> v){
     int n = v.size();
     if (n < 2) return 0.0;
+  
     double sum = 0.0;
     double sum_sq = 0.0;
 
