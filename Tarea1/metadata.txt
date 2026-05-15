@@ -1,1 +1,5 @@
+Ejercicio 4 - Metadata
 
+Modelos de IA utilizados:
+- Gemini 3.1 Pro: generación de una versión de la función pearson_r
+- Claude Sonnet 4.6 (claude.ai): comparación de versiones y generación de la versión definitiva de pearson_r
