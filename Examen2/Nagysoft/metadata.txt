@@ -1,0 +1,23 @@
+Evaluación - NagySoft (K-Means Clustering 3D)
+
+Modelos de IA utilizados:
+- Gemini (Chat 1 - Rol: Mentor Teórico y Estratega)
+- Gemini (Chat 2 - Rol: Desarrollador, Arquitecto Base y Analista de Datos)
+- Claude 3.5 Sonnet (Rol: Optimización Matemática y Rendimiento)
+
+1. Reporte de interacciones y comentarios sobre el uso de la IA:
+
+a) Gemini (Chat 1 - Mentoría):
+Utilicé este chat para comprender la teoría espacial del algoritmo K-Means en 3D antes de escribir código (Distancia Euclidiana, recálculo del centro de masa y convergencia). También diseñé aquí la estrategia de división del proyecto en fases modulares (tipos.h, módulos separados para algoritmo y entrada/salida de datos).
+
+b) Gemini (Chat 2 - Código Base, Integración y Análisis):
+Este modelo actuó como desarrollador principal. Me ayudó a generar la estructura de lectura del CSV, la configuración del Makefile (adaptándolo para compilar en Windows sin perder la compatibilidad estándar de 'rm' para servidores Linux) y el módulo de escritura para generar los archivos de salida. 
+Posteriormente, utilicé este chat como asistente de análisis de datos. Le pasé los resultados empíricos de iteraciones y medidas de dispersión de mis pruebas, lo que me ayudó a contrastar el "Método del Codo" y estructurar la justificación técnica de mi decisión final.
+
+c) Claude (Optimización del Motor Matemático - Fase 3):
+El modelo Claude (claude-sonnet-4-6) diseñó el núcleo matemático del algoritmo en kmeans.h y kmeans.cpp. Sus contribuciones incluyen: la inicialización K-Means++ con muestreo ponderado por distancia al cuadrado (D²) para garantizar centroides bien distribuidos; el uso de distancia_cuadrada en lugar de distancia_euclidiana en el loop de asignación (eliminando múltiples llamadas innecesarias a la función sqrt); y el diseño de un vector de asignaciones desacoplado para preservar la inmutabilidad de los datos originales.
+
+2. Análisis Técnico y Justificación de Clusters (Overfitting):
+
+Tras ejecutar el algoritmo en C++ para valores de 'k' entre 2 y 11, determiné que el número óptimo y más representativo de clusters es k=6.
+Si bien la Medida de Dispersión disminuía matemáticamente a medida que aumentaba 'k', el análisis de convergencia de las iteraciones fue el factor decisivo. Durante las pruebas, noté que para k=5 el sistema presentó alta inestabilidad en las fronteras, tardando 174 iteraciones en estabilizarse (lo que sugiere agrupaciones forzadas). En contraste, k=6 convergió de manera natural y rápida en solo 59 iteraciones. Esto indica que k=6 respeta la topología real de los datos en el espacio 3D sin caer en overfitting, alineándose con el análisis de dispersión y descartando particiones artificiales.
