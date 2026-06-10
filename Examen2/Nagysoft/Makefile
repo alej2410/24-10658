@@ -20,7 +20,14 @@ $(TARGET): $(OBJS)
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-# Regla para limpiar el directorio (Adaptada para Windows)
-clean:
-	del /Q /F *.o cluster.exe
+# DETECCIÓN INTELIGENTE DE SISTEMA OPERATIVO
+# Si la variable OS está definida, estamos en Windows. Si no, en Linux/Mac.
+ifdef OS
+    CLEAN_CMD = del /Q /F *.o cluster.exe
+else
+    CLEAN_CMD = rm -f *.o cluster cluster.exe
+endif
 
+# Regla clean multiplataforma (Funciona en la USB y en tu PC)
+clean:
+	$(CLEAN_CMD)
