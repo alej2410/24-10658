@@ -2,6 +2,6 @@ Primera versión de mult: Z=>Z=>Z mult:= fn(Z x) -> fn(Z y) -> if(y=0, 0, if(x=0
 
 Dado que la recursión hace que se ejecute la función tantas veces como indique el parámetro y, al multiplicar 2*10000 se ejecutaria
 10000 veces solo para obtener el mismo resultado que 10000*2 gracias a la conmutatividad donde se estaría ejecutando simplemente 2 veces. 
-Para optimizar esta función lo mejor sería verificar cuál es menor para reducir la recursión.
+Para optimizar esta función lo mejor sería verificar cuál número está más cerca del 0 para reducir la recursión.
 
-Optimizando mult: Z=>Z=>Z mult:= fn(Z x) -> fn(Z y) -> if(x<y, mult(y)(x), if(y=0, 0, if(x=0, 0, if(y<0, 0-x + mult(x)(y+1), x+mult(x)(y-1)))))
+Optimizando mult: Z=>Z=>Z mult:= fn(Z x) -> fn(Z y) -> if(if(x<0, 0-x, x) < if(y<0, 0-y, y), mult(y)(x), if(y=0, 0, if(x=0, 0, if(y<0, 0-x + mult(x)(y+1), x+mult(x)(y-1)))))
