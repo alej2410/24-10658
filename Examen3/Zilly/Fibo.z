@@ -1,0 +1,27 @@
+Aquí está su definición, en Zilly extendida con operadores infijos (Zilly+) 
+=============================================
+::zilly+
+
+Z => Z fibo := fn(Z n) => Z -> if(n < 2, n, fibo(n - 1) + fibo(n - 2));
+=============================================
+
+Sea sfib una función tal que sfib(n) = sumatoria (para i de 0 a n) de fibo(i)
+
+Por si acaso no se entiende lo anterior:
+
+sfib(0) = fibo(0)
+sfib(1) = fibo(0) + fibo(1)
+sfib(2) = fibo(0) + fibo(1) + fibo(2)
+...
+sfib(n) = fibo(0) + ... + fibo(n)
+
+La tarea consiste en:
+
+1. implementar sfib en Zilly+ (5 puntos)
+
+2. (bono: 1 punto adicional) ¿Notan una relación entre sfib con fibo?
+De ser así, consiga la fórmula e implemente la función zfib, tal the zfib(n) = sfib(n), para todo n.
+La implementación de zfib no debe ser recursiva, sólo depender directamente de fibo.
+
+3. (bono: 2 puntos adicionales) ¿Es zfib más rápido que sfib?
+Conteste SI o NO y explique porqué, de manera clara, rigurosa, y en pocas líneas, ya que no hacen falta muchas.
