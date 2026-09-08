@@ -1,0 +1,40 @@
+{
+  "name": "macondian",
+  "description": "Macondian Simulation",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "OS": "Linux",
+  "scripts": {
+    "clean": "rm -rf dist/*",
+    "start": "vite --port 8088",
+    "build": "vite build",
+    "serve": "vite preview --host localhost --port 8088",
+    "lint": "eslint src --report-unused-disable-directives --max-warnings 8"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.8",
+    "file-saver": "^2.0.5",
+    "react": "^19.2.8",
+    "react-bootstrap": "^2.10.10",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/bootstrap": "^5.2.11",
+    "@types/file-saver": "^2.0.7",
+    "@types/node": "^26.4.1",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "esbuild": "^0.28.2",
+    "eslint": "^10.9.1",
+    "eslint-plugin-react": "^7.37.5",
+    "path": "^0.12.7",
+    "typescript": "^7.0.2",
+    "vite": "^8.2.2"
+  },
+  "allowScripts": {
+    "esbuild": true
+  }
+}

@@ -1,0 +1,297 @@
+/* index.css */
+
+:root {
+  font-family: fixed, Inter, system-ui, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  overflow: hidden;      /* the app owns the viewport; the page never scrolls */
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+/* --- App shell: full-viewport, adaptive two-pane layout ----------------- */
+/* Plain CSS flexbox drives the layout (no library): it fills the screen    */
+/* and reflows without any magic pixel widths. Bootstrap still styles the   */
+/* individual controls (inputs, buttons, input-groups). The min-height: 0   */
+/* on flex children is the key trick that lets the textareas shrink and     */
+/* scroll instead of overflowing the page.                                  */
+
+.app-shell {
+  height: 100%;          /* real available height (not the unreliable 100vh) */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem 0.25rem;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  overflow: hidden;      /* the shell owns 100vh; textareas scroll internally */
+}
+
+.app-header {
+  flex: 0 0 auto;
+  font-size: 1em;
+  line-height: 1.2;
+  padding: 0 0;
+  margin: 0;
+}
+
+.app-footer {
+  flex: 0 0 auto;
+  padding: 0 0;
+  margin: 0;
+}
+
+/* Horizontal toolbar between the title and the panes. It spans the same    */
+/* width as the panes below it and will grow richer over time (more         */
+/* buttons, drop-down menus).                                               */
+.app-toolbar {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* File-management controls */
+/* File origin badge, read-only filename, and buttons */
+/* Built from first principles no Bootstrap composite control. */
+.toolbar-file {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.toolbar-file .tb-btn {
+  padding: 0.25rem 0.6rem;
+  font-size: 0.9em;
+  border-radius: 4px;
+  border: 1px solid #444;
+  background-color: #1a1a1a;
+  color: inherit;
+}
+
+.toolbar-file .tb-btn:hover {
+  border-color: #646cff;
+}
+
+/* Origin indicator: 'D' = Disk, 'N' = Web storage, '–' = no file. */
+.toolbar-origin {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 4px;
+  border: 1px solid #444;
+  font-weight: 700;
+  color: #CFA907;
+}
+
+/* Read-only display of the current filename (null -> "(no file)"). */
+.toolbar-filename {
+  min-width: 8rem;
+  max-width: 32rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: consolas, monospace;
+  opacity: 0.9;
+}
+
+.toolbar-error {
+  color: red;
+}
+
+/* Push the Reset button to the far-right end of the toolbar. */
+.toolbar-reset {
+  margin-left: auto;
+}
+
+.app-main {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  gap: 1rem;
+}
+
+.app-pane {
+  flex: 1 1 0;          /* default 50/50; ICE overrides the split via drag */
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Editor | Monitor split container. It fills the space beside the (optional) */
+/* FilePicker and is the reference box for the drag ratio, so the divider     */
+/* math no longer needs to know whether a FilePicker is present.              */
+.app-split {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  gap: 1rem;
+}
+
+/* FilePicker sidebar: a fixed-width column that does not stretch. */
+.filepicker {
+  flex: 0 0 12rem;
+  min-height: 0;
+  overflow: auto;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  background-color: #202020;
+}
+
+.filepicker-title {
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.filepicker-empty {
+  opacity: 0.6;
+  font-style: italic;
+}
+
+.filepicker-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.filepicker-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.15rem 0.25rem;
+  border: none;
+  border-radius: 4px;
+  background: none;
+  color: #CFA907;
+  font-family: consolas, monospace;
+  cursor: pointer;
+}
+
+.filepicker-item:hover {
+  background-color: #2c2c2c;
+}
+
+/* Draggable divider that adjusts the Editor / Monitor width ratio. */
+.pane-divider {
+  flex: 0 0 4px;
+  align-self: stretch;
+  cursor: col-resize;
+  border-radius: 2px;
+  background-color: #0a0a0a;
+  transition: background-color 0.15s;
+}
+
+.pane-divider:hover {
+  background-color: #e04020;
+}
+
+.pane-content {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* A fill element (editor / monitor textarea) grows to consume its pane. */
+.pane-fill {
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.cli-form {
+  display: flex;
+  gap: 0.25rem;
+  margin-top: 0.5rem;
+}
+
+.cli-command {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* Below ~900px (small laptops) the panes stack vertically. This is a       */
+/* keyboard-first computing platform, so we intentionally stop here and do  */
+/* not chase phone-sized layouts.                                           */
+@media (max-width: 900px) {
+  .app-main,
+  .app-split {
+    flex-direction: column;
+  }
+  /* Horizontal drag has no meaning once the panes stack vertically. */
+  .pane-divider {
+    display: none;
+  }
+  /* Let the FilePicker sit above the panes at its natural height. */
+  .filepicker {
+    flex: 0 0 auto;
+  }
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}

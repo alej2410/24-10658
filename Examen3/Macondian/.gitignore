@@ -1,0 +1,90 @@
+#
+# See https://help.github.com/articles/ignoring-files/
+#
+
+# Docker files ... at least for now
+Dockerfile
+.dockerignore
+
+# Generated files: distribution, build, etc.
+dist/
+dist-newstyle/
+build/
+dist-ssr
+*.local
+
+# Packages  (libraries)
+node_modules
+node_modules.*
+
+# package lock files
+package-lock.json
+yarn.lock
+bun.lock
+
+# just in case, trash, backups, ...
+.jic
+.trash
+*.bak
+*.old
+*.tmp
+*.xxx
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ES Lint cache
+.eslintcache
+
+# IDE directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Haskell
+
+./Haskell/dist
+./Haskell/dist-*
+./Haskell/cabal-dev
+./Haskell/*.o
+./Haskell/*.hi
+./Haskell/*.hie
+./Haskell/*.chi
+./Haskell/*.chs.h
+./Haskell/*.dyn_o
+./Haskell/*.dyn_hi
+./Haskell/.hpc
+./Haskell/.hsenv
+./Haskell/.cabal-sandbox/
+./Haskell/cabal.sandbox.config
+./Haskell/*.prof
+./Haskell/*.aux
+./Haskell/*.hp
+./Haskell/*.eventlog
+./Haskell/.stack-work/
+./Haskell/cabal.project.local
+./Haskell/cabal.project.local~
+./Haskell/.HTF/
+./Haskell/.ghc.environment.*
+./Haskell/./dist/**
+.direnv/**
+./Haskell/dist-newstyle/**
