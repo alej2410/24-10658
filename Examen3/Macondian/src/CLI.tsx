@@ -2,20 +2,50 @@
 /// CLI.tsx
 ///
 
-import { SubmitEvent } from 'react';
+import type {
+  FormEvent,
+  RefObject,
+} from "react";
+
 
 interface Props {
-  req: (event: SubmitEvent<HTMLFormElement>) => void;
-  ref: React.RefObject<HTMLInputElement | null>;
-};
+  req: (
+    event: FormEvent<HTMLFormElement>
+  ) => void;
 
-const CLI = (props: Props) => {
+  ref: RefObject<HTMLInputElement | null>;
+}
+
+
+const CLI = ({
+  req,
+  ref,
+}: Props) => {
+
   return (
-  <form className="cli-form" onSubmit={props.req}>
-    <input className="cli-command" style={{ color: "black", backgroundColor: "#C0E090" }} ref={props.ref} />
-    <input style = {{ color: "lightgreen", backgroundColor: "#060606" }} type = "submit" value = ">>>" />
-  </form>
+
+    <form
+      className="cli-form"
+      onSubmit={req}
+    >
+
+      <input
+        className="cli-command"
+        ref={ref}
+        aria-label="Macondian command"
+        autoComplete="off"
+        spellCheck={false}
+      />
+
+      <input
+        type="submit"
+        value=">>>"
+        aria-label="Execute command"
+      />
+
+    </form>
   );
 };
+
 
 export default CLI;
