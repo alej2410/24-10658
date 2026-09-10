@@ -295,3 +295,1062 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* ==========================================================================
+   MACONDIAN SCIENTIFIC RESEARCH UI
+   ========================================================================== */
+
+:root {
+  color-scheme: dark;
+
+  --lab-bg: #050809;
+  --lab-surface: #091013;
+  --lab-surface-2: #0d171a;
+  --lab-surface-3: #111f23;
+
+  --lab-border: #20363d;
+  --lab-border-bright: #31525b;
+
+  --lab-text: #d9e5e7;
+  --lab-muted: #799198;
+
+  --lab-green: #80ffbf;
+  --lab-green-soft: #55d69b;
+
+  --lab-amber: #e7b955;
+  --lab-red: #ff6b6b;
+
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  color: var(--lab-text);
+  background: var(--lab-bg);
+}
+
+
+/* ==========================================================================
+   Global
+   ========================================================================== */
+
+html,
+body,
+#root {
+  background:
+    radial-gradient(
+      circle at top,
+      #102025 0%,
+      #070c0e 38%,
+      #040607 100%
+    );
+
+  color: var(--lab-text);
+}
+
+
+body {
+  color: var(--lab-text);
+}
+
+
+/* ==========================================================================
+   Main application shell
+   ========================================================================== */
+
+.app-shell {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(12, 25, 29, 0.98),
+      rgba(5, 9, 11, 0.99)
+    );
+
+  color: var(--lab-text);
+
+  padding: 0.75rem;
+
+  gap: 0.5rem;
+}
+
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+.app-header {
+  border: 1px solid var(--lab-border);
+
+  border-radius: 8px;
+
+  padding:
+    0.55rem
+    0.9rem;
+
+  background:
+    linear-gradient(
+      90deg,
+      #0a1518,
+      #101f23,
+      #091215
+    );
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.25),
+    inset 0 1px rgba(255, 255, 255, 0.03);
+}
+
+
+.app-header h3 {
+  margin: 0;
+
+  color: #e9f4f1;
+
+  font-size: 1.15rem;
+
+  font-weight: 650;
+
+  letter-spacing: 0.04em;
+}
+
+
+/* ==========================================================================
+   Toolbar
+   ========================================================================== */
+
+.app-toolbar {
+  margin-top: 0 !important;
+
+  padding: 0.3rem;
+
+  border:
+    1px solid
+    var(--lab-border);
+
+  border-radius: 8px;
+
+  background: #070d0f;
+}
+
+
+.app-toolbar .input-group {
+  border-radius: 6px;
+
+  overflow: hidden;
+}
+
+
+.app-toolbar .input-group-text {
+  border-color:
+    var(--lab-border) !important;
+
+  background:
+    #0b1417 !important;
+
+  font-family:
+    "Cascadia Code",
+    "JetBrains Mono",
+    "Fira Code",
+    Consolas,
+    monospace;
+
+  font-size: 0.82rem;
+
+  transition:
+    background-color 120ms ease,
+    border-color 120ms ease,
+    box-shadow 120ms ease;
+}
+
+
+.app-toolbar button.input-group-text:hover {
+  background:
+    #132328 !important;
+
+  border-color:
+    var(--lab-green-soft) !important;
+
+  box-shadow:
+    inset 0 0 12px
+    rgba(128, 255, 191, 0.06);
+}
+
+
+.toolbar-error {
+  color:
+    var(--lab-red);
+
+  display: flex;
+
+  align-items: center;
+
+  padding:
+    0 0.75rem;
+
+  font-family:
+    "Cascadia Code",
+    Consolas,
+    monospace;
+
+  font-size:
+    0.8rem;
+}
+
+
+/* ==========================================================================
+   Main workspace
+   ========================================================================== */
+
+.app-main {
+  min-height: 0;
+
+  gap: 0.6rem;
+
+  overflow: hidden;
+}
+
+
+.app-split {
+  gap: 0.6rem;
+}
+
+
+.app-pane {
+  min-width: 0;
+  min-height: 0;
+
+  overflow: hidden;
+
+  padding: 0.6rem;
+
+  border:
+    1px solid
+    var(--lab-border);
+
+  border-radius: 8px;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--lab-surface),
+      #070d0f
+    );
+
+  box-shadow:
+    0 8px 30px
+      rgba(0, 0, 0, 0.22),
+    inset 0 1px
+      rgba(255, 255, 255, 0.025);
+}
+
+
+.app-pane > h3 {
+  flex: 0 0 auto;
+
+  margin:
+    0 0 0.45rem 0;
+
+  padding-bottom:
+    0.4rem;
+
+  border-bottom:
+    1px solid
+    var(--lab-border);
+
+  color:
+    var(--lab-amber);
+
+  font-family:
+    "Cascadia Code",
+    "JetBrains Mono",
+    Consolas,
+    monospace;
+
+  font-size:
+    0.85rem;
+
+  font-weight: 600;
+
+  letter-spacing:
+    0.08em;
+
+  text-transform:
+    uppercase;
+}
+
+
+/* ==========================================================================
+   Scientific divider
+   ========================================================================== */
+
+.pane-divider {
+  position: relative;
+
+  flex:
+    0 0
+    6px;
+
+  align-self:
+    stretch;
+
+  border:
+    1px solid
+    #17292e;
+
+  border-radius:
+    6px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #14272c,
+      #31515a,
+      #14272c
+    );
+
+  cursor:
+    col-resize;
+
+  transition:
+    background 120ms ease,
+    box-shadow 120ms ease;
+}
+
+
+.pane-divider:hover {
+  background:
+    linear-gradient(
+      180deg,
+      #244348,
+      var(--lab-green-soft),
+      #244348
+    );
+
+  box-shadow:
+    0 0 12px
+    rgba(128, 255, 191, 0.25);
+}
+
+
+/* ==========================================================================
+   Professional terminal / Monitor
+   ========================================================================== */
+
+textarea.pane-fill {
+  min-height: 0;
+
+  padding:
+    0.8rem !important;
+
+  border:
+    1px solid
+    #1c3a31 !important;
+
+  border-radius:
+    6px;
+
+  outline:
+    none;
+
+  resize:
+    none !important;
+
+  color:
+    var(--lab-green) !important;
+
+  background-color:
+    #030807 !important;
+
+  background-image:
+    linear-gradient(
+      rgba(128, 255, 191, 0.015) 1px,
+      transparent 1px
+    ) !important;
+
+  background-size:
+    100% 22px !important;
+
+  font-family:
+    "Cascadia Code",
+    "JetBrains Mono",
+    "Fira Code",
+    Consolas,
+    monospace !important;
+
+  font-size:
+    0.8rem;
+
+  line-height:
+    1.45;
+
+  caret-color:
+    var(--lab-green);
+
+  box-shadow:
+    inset 0 0 25px
+    rgba(0, 255, 150, 0.035);
+}
+
+
+textarea.pane-fill:focus {
+  border-color:
+    #31694f !important;
+
+  box-shadow:
+    inset 0 0 25px
+      rgba(0, 255, 150, 0.04),
+    0 0 0 1px
+      rgba(128, 255, 191, 0.08);
+}
+
+
+/* ==========================================================================
+   CLI
+   ========================================================================== */
+
+.cli-form {
+  flex: 0 0 auto;
+
+  margin-top: 0;
+
+  padding: 0.35rem;
+
+  border:
+    1px solid
+    var(--lab-border);
+
+  border-radius:
+    7px;
+
+  background:
+    #050b0d;
+}
+
+
+.cli-command {
+  padding:
+    0.5rem
+    0.65rem;
+
+  border:
+    1px solid
+    #244039 !important;
+
+  border-radius:
+    5px;
+
+  outline:
+    none;
+
+  color:
+    var(--lab-green) !important;
+
+  background:
+    #020706 !important;
+
+  font-family:
+    "Cascadia Code",
+    "JetBrains Mono",
+    Consolas,
+    monospace;
+}
+
+
+.cli-command:focus {
+  border-color:
+    var(--lab-green-soft) !important;
+
+  box-shadow:
+    0 0 0 2px
+    rgba(128, 255, 191, 0.08);
+}
+
+
+.cli-form input[type="submit"] {
+  min-width:
+    3.5rem;
+
+  border:
+    1px solid
+    #315b4a;
+
+  border-radius:
+    5px;
+
+  color:
+    var(--lab-green) !important;
+
+  background:
+    #07100c !important;
+
+  font-family:
+    "Cascadia Code",
+    Consolas,
+    monospace;
+
+  font-weight:
+    700;
+}
+
+
+.cli-form input[type="submit"]:hover {
+  border-color:
+    var(--lab-green);
+
+  background:
+    #0c1d15 !important;
+}
+
+
+/* ==========================================================================
+   Image viewer
+   ========================================================================== */
+
+.image-panel {
+  flex:
+    1 1 auto;
+
+  min-width:
+    0;
+
+  min-height:
+    0;
+
+  width:
+    100%;
+
+  height:
+    100%;
+
+  box-sizing:
+    border-box;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  overflow:
+    hidden;
+
+  padding:
+    1rem;
+
+  border:
+    1px solid
+    #182a30;
+
+  border-radius:
+    7px;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #122126 0%,
+      #081013 55%,
+      #040708 100%
+    );
+}
+
+
+.macondian-image {
+  display:
+    block;
+
+  width:
+    100%;
+
+  height:
+    100%;
+
+  max-width:
+    100%;
+
+  max-height:
+    100%;
+
+  object-fit:
+    contain;
+
+  object-position:
+    center;
+
+  user-select: 
+    none;
+}
+
+
+/* ==========================================================================
+   Events / Research table
+   ========================================================================== */
+
+.events-panel {
+  flex:
+    1 1 auto;
+
+  min-width:
+    0;
+
+  min-height:
+    0;
+
+  width:
+    100%;
+
+  max-width:
+    1400px;
+
+  margin:
+    0 auto;
+
+  padding:
+    1rem;
+
+  box-sizing:
+    border-box;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  overflow:
+    hidden;
+
+  border:
+    1px solid
+    var(--lab-border);
+
+  border-radius:
+    8px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #0a1215,
+      #070c0e
+    );
+
+  box-shadow:
+    0 12px 30px
+    rgba(0, 0, 0, 0.25);
+}
+
+
+.events-header {
+  flex:
+    0 0 auto;
+
+  padding:
+    0.2rem
+    0.25rem
+    0.8rem;
+
+  border-bottom:
+    1px solid
+    var(--lab-border);
+
+  margin-bottom:
+    0.75rem;
+}
+
+
+.events-kicker {
+  display:
+    block;
+
+  margin-bottom:
+    0.25rem;
+
+  color:
+    var(--lab-green-soft);
+
+  font-family:
+    "Cascadia Code",
+    Consolas,
+    monospace;
+
+  font-size:
+    0.7rem;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    0.18em;
+}
+
+
+.events-header h3 {
+  margin:
+    0;
+
+  color:
+    #edf6f3;
+
+  font-size:
+    1.15rem;
+
+  font-weight:
+    600;
+}
+
+
+.events-header p {
+  margin:
+    0.2rem 0 0;
+
+  color:
+    var(--lab-muted);
+
+  font-size:
+    0.82rem;
+}
+
+
+.events-table-scroll {
+  flex:
+    1 1 auto;
+
+  min-height:
+    0;
+
+  min-width:
+    0;
+
+  width:
+    100%;
+
+  overflow:
+    auto;
+
+  border:
+    1px solid
+    #1d3339;
+
+  border-radius:
+    6px;
+
+  scrollbar-width:
+    thin;
+
+  scrollbar-color:
+    #34545c
+    #081013;
+}
+
+
+.events-table {
+  width:
+    100%;
+
+  min-width:
+    680px;
+
+  margin:
+    0 !important;
+
+  --bs-table-bg:
+    #081013;
+
+  --bs-table-color:
+    #d6e3e5;
+
+  --bs-table-striped-bg:
+    #0c171a;
+
+  --bs-table-striped-color:
+    #d6e3e5;
+
+  --bs-table-hover-bg:
+    #12262a;
+
+  --bs-table-hover-color:
+    #f2faf8;
+
+  --bs-table-border-color:
+    #1d363d;
+}
+
+
+.events-table thead th {
+  position:
+    sticky;
+
+  top:
+    0;
+
+  z-index:
+    2;
+
+  padding:
+    0.75rem;
+
+  border-color:
+    #29464e !important;
+
+  color:
+    var(--lab-amber) !important;
+
+  background:
+    #101c20 !important;
+
+  font-family:
+    "Cascadia Code",
+    Consolas,
+    monospace;
+
+  font-size:
+    0.78rem;
+
+  letter-spacing:
+    0.05em;
+
+  text-transform:
+    uppercase;
+}
+
+
+.events-table tbody td {
+  padding:
+    0.7rem
+    0.75rem;
+
+  vertical-align:
+    middle;
+
+  font-size:
+    0.85rem;
+}
+
+
+/* ==========================================================================
+   Chart: adapt the existing SVG to dark laboratory mode
+   ========================================================================== */
+
+.app-pane svg {
+  border:
+    1px solid
+    var(--lab-border);
+
+  border-radius:
+    7px;
+
+  background-color:
+    #071013 !important;
+}
+
+
+.app-pane svg text {
+  fill:
+    #cbdcde;
+}
+
+
+.app-pane svg line {
+  stroke:
+    #345059;
+}
+
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.app-footer {
+  flex:
+    0 0 auto;
+
+  padding:
+    0.4rem
+    0.7rem;
+
+  border:
+    1px solid
+    var(--lab-border);
+
+  border-radius:
+    7px;
+
+  color:
+    var(--lab-muted);
+
+  background:
+    #060b0d;
+}
+
+
+.app-footer h6 {
+  margin:
+    0;
+
+  font-size:
+    0.72rem;
+
+  font-weight:
+    400;
+}
+
+
+.app-footer b {
+  color:
+    var(--lab-amber);
+}
+
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 900px) {
+
+  .events-panel {
+    padding:
+      0.65rem;
+  }
+
+  .image-panel {
+    padding:
+      0.5rem;
+  }
+
+  .app-pane {
+    padding:
+      0.45rem;
+  }
+}
+
+/* ==========================================================================
+   Main title
+   ========================================================================== */
+
+.app-header {
+  min-height: 58px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0.7rem 1rem;
+
+  border-color: #29434a;
+
+  background:
+    linear-gradient(
+      90deg,
+      #071215 0%,
+      #0d2024 50%,
+      #071215 100%
+    );
+
+  box-shadow:
+    0 6px 24px rgba(0, 0, 0, 0.30),
+    inset 0 1px rgba(255, 255, 255, 0.035);
+}
+
+
+.app-title {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+
+  gap: 0.15rem;
+}
+
+
+.app-title-main {
+  display: flex;
+  align-items: center;
+
+  gap: 0.65rem;
+
+  color: #f1f8f6;
+
+  font-size: clamp(
+    1.2rem,
+    1.5vw,
+    1.55rem
+  );
+
+  font-weight: 700;
+
+  letter-spacing: 0.025em;
+
+  line-height: 1.1;
+
+  text-shadow:
+    0 0 18px
+    rgba(128, 255, 191, 0.08);
+}
+
+
+.app-title-indicator {
+  flex: 0 0 auto;
+
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+
+  background: #72efb2;
+
+  box-shadow:
+    0 0 5px rgba(114, 239, 178, 0.9),
+    0 0 13px rgba(114, 239, 178, 0.45);
+}
+
+
+.app-title-subtitle {
+  margin-left: 1.55rem;
+
+  color: #70898f;
+
+  font-family:
+    "Cascadia Code",
+    "JetBrains Mono",
+    Consolas,
+    monospace;
+
+  font-size: 0.63rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.16em;
+}
+
+.app-toolbar {
+  border-color: #192e34;
+
+  background:
+    linear-gradient(
+      180deg,
+      #071012,
+      #050a0c
+    );
+
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.02);
+}
+
+
+.app-toolbar .input-group-text {
+  color: #7f9297;
+
+  font-size: 0.75rem;
+}
+
+
+.app-toolbar button.input-group-text:hover {
+  color: #dce9e6;
+
+  background:
+    #102126 !important;
+}

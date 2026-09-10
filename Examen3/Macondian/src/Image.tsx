@@ -1,22 +1,51 @@
 ///
-/// Image
+/// Image.tsx
 ///
 
 interface Props {
-  image: string; 
-};
+  image: string;
+  alt?: string;
+}
 
-const Image = ({ image }: Props) => {
-  const src = new URL(`../images/${image}`, import.meta.url).href;
+
+const Image = ({
+  image,
+  alt,
+}: Props) => {
+
+  /*
+   * Las imágenes están en:
+   *
+   * Macondian/images/
+   *
+   * Image.tsx está en:
+   *
+   * Macondian/src/
+   */
+  const src =
+    new URL(
+      `../images/${image}`,
+      import.meta.url
+    ).href;
+
+
   return (
-    <div style={{ display: "inline-block", verticalAlign: "top" }}>
-      <div className="splash-image transparent" style={{ float: "left" }}>
-        <img
-          src={src}
-        />
-      </div>
+
+    <div className="image-panel">
+
+      <img
+        className="macondian-image"
+        src={src}
+        alt={
+          alt ??
+          `Macondian research visualization: ${image}`
+        }
+        draggable={false}
+      />
+
     </div>
   );
 };
+
 
 export default Image;

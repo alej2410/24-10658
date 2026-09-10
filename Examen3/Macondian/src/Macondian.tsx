@@ -52,9 +52,26 @@ const artefact = "Macondian Simulator";
 const version = "V-20260901";
 
 const title = (
-  <h3>
-    The Great {artefact}
-  </h3>
+  <div className="app-title">
+
+    <div className="app-title-main">
+
+      <span
+        className="app-title-indicator"
+        aria-hidden="true"
+      />
+
+      <span>
+        The Great {artefact}
+      </span>
+
+    </div>
+
+    <div className="app-title-subtitle">
+      MACONDIAN BIOSENSOR PROCESSING LABORATORY
+    </div>
+
+  </div>
 );
 
 const product = (
@@ -126,6 +143,35 @@ interface RuntimeViewState {
   benchmark: SynthesisStats;
 }
 
+// ============================================================================
+// Research images
+// ============================================================================
+
+const MACONDIAN_IMAGES = [
+
+  "ART042.jpg",
+  "ART067.png",
+  "ART097.png",
+  "ART409.png",
+
+  "MAC091.png",
+  "MAC092.png",
+  "MAC127.png",
+  "MAC997.jpg",
+
+] as const;
+
+
+const pickRandomImage = (): string => {
+
+  const index =
+    Math.floor(
+      Math.random() *
+      MACONDIAN_IMAGES.length
+    );
+
+  return MACONDIAN_IMAGES[index];
+};
 
 // ============================================================================
 // Worker
@@ -533,14 +579,19 @@ const Macondian = () => {
 
 
   /*
-   * Evita que la imagen cambie aleatoriamente
-   * en cada render de React.
-   */
-  const randomImageRef =
-    useRef(
-      Math.random() < 0.5
-        ? "ART042.jpg"
-        : "ART067.png"
+  * Dos selecciones independientes.
+  *
+  * Se guardan en useRef para evitar que la imagen cambie
+  * cada vez que llega un batch y React vuelve a renderizar.
+  */
+  const rawImageRef =
+    useRef<string>(
+      pickRandomImage()
+    );
+
+  const imageViewRef =
+    useRef<string>(
+      pickRandomImage()
     );
 
 
@@ -1201,6 +1252,14 @@ const Macondian = () => {
 
     setError("");
 
+    /*
+    * Nueva selección visual para la siguiente sesión.
+    */
+    rawImageRef.current =
+    pickRandomImage();
+
+    imageViewRef.current =
+    pickRandomImage();
 
     /*
      * Crear una VM nueva y limpia.
@@ -1709,7 +1768,9 @@ const Macondian = () => {
       >
 
         <Image
-          image="MAC997.jpg"
+          image={
+            rawImageRef.current
+          }
         />
 
       </section>
@@ -1826,6 +1887,10 @@ const Macondian = () => {
          *
          * Ahora pasamos los batches procesados reales.
          */}
+         
+         <h3>
+          Señal sintetizada </h3>
+
         <Chart
           data={
             runtimeView
@@ -1843,7 +1908,7 @@ const Macondian = () => {
 
     <Image
       image={
-        randomImageRef.current
+        imageViewRef.current
       }
     />
   );
