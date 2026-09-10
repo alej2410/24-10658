@@ -1256,10 +1256,10 @@ const Macondian = () => {
     * Nueva selección visual para la siguiente sesión.
     */
     rawImageRef.current =
-    pickRandomImage();
+      pickRandomImage();
 
     imageViewRef.current =
-    pickRandomImage();
+      pickRandomImage();
 
     /*
      * Crear una VM nueva y limpia.
@@ -1887,7 +1887,7 @@ const Macondian = () => {
          *
          * Ahora pasamos los batches procesados reales.
          */}
-         
+
          <h3>
           Señal sintetizada </h3>
 

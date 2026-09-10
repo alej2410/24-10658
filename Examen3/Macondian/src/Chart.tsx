@@ -38,7 +38,7 @@ const HEIGHT = 520;
 
 const MARGIN_LEFT = 80;
 const MARGIN_RIGHT = 30;
-const MARGIN_TOP = 30;
+const MARGIN_TOP = 20;
 const MARGIN_BOTTOM = 70;
 
 const PLOT_WIDTH =
@@ -437,40 +437,15 @@ const Chart = ({
 
   return (
 
-    <div
-      style={{
-        width: "100%",
-        height: "100%",
-        overflow: "auto",
-      }}
+    <div className="chart-container">
+
+    <svg
+      className="chart-svg"
+      viewBox={
+        `0 0 ${WIDTH} ${HEIGHT}`
+      }
+      preserveAspectRatio="xMidYMid meet"
     >
-
-      <svg
-        viewBox={
-          `0 0 ${WIDTH} ${HEIGHT}`
-        }
-        style={{
-          width: "100%",
-          minWidth: "700px",
-          height: "auto",
-          backgroundColor: "white",
-        }}
-      >
-
-        {/* ================================================================
-            Título
-           ================================================================ */}
-
-        <text
-          x={WIDTH / 2}
-          y={22}
-          textAnchor="middle"
-          fontSize="18"
-          fontWeight="bold"
-        >
-          Macondian Synthesized Sensor Data
-        </text>
-
 
         {/* ================================================================
             Grid horizontal + etiquetas Y
@@ -764,15 +739,7 @@ const Chart = ({
           Leyenda
          ================================================================== */}
 
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          gap: "12px",
-          padding: "10px",
-          justifyContent: "center",
-        }}
-      >
+      <div className="chart-legend">
 
         {
           series.map(
