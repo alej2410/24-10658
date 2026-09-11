@@ -27,6 +27,8 @@ La implementación de zfib no debe ser recursiva, sólo depender directamente de
 Conteste SI o NO y explique porqué, de manera clara, rigurosa, y en pocas líneas, ya que no hacen falta muchas.
 
 
+
+
 1. sfib: 
 Z => Z sfib := fn(Z n) => Z -> if(n < 1, 0, sfib(n - 1) + fibo(n));
 
@@ -35,4 +37,7 @@ Al hacer las pruebas siempre se cumple esa relacion por ejemplo fibo(8) - 1 = 20
 
     zfib:    Z => Z zfib := fn(Z n) => Z -> fibo(n + 2) - 1;
 
-3. Yo opino que zfib no es mas rapido que sfib porque aunque sfib sea con recursion y este repitiendo el procceso de calcular sfib n cantidad de veces, zfib tiene que abrir una rama mas grande de fibonacci, lo cual requeriria un mayor procesamiento. Otra vez con el mismo ejemplo, mientras que sfib(6) = sfib(5) + fibo(6) donde tiene que calcular desde sfib(5) hasta llegar a sfib(0) con recursion para llegar al resultado de sfib(6)
+3. Yo opino que zfib no es mas rapido que sfib porque aunque sfib sea con recursion y este repitiendo el procceso de calcular sfib n cantidad de veces, 
+zfib tiene que abrir una rama mas grande de fibonacci, lo cual requeriria un mayor procesamiento. Otra vez con el mismo ejemplo, 
+mientras que sfib(6) = sfib(5) + fibo(6) donde tiene que calcular desde sfib(5) hasta llegar a sfib(0) con recursion para llegar al resultado de sfib(6), 
+pero con zfib(6) haria fib(8) - 1 que aunque suene a menos proceso es mas largo porque tiene que ir ramificandose como fibo(7) + fibo(6) y cada uno de estos se ramificaria de la misma forma.
