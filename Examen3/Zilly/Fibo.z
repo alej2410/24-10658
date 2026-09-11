@@ -33,11 +33,10 @@ Conteste SI o NO y explique porqué, de manera clara, rigurosa, y en pocas líne
 Z => Z sfib := fn(Z n) => Z -> if(n < 1, 0, sfib(n - 1) + fibo(n));
 
 2. Relacion entre sfib y fibo: La relacion es   sfib(n) = fibo(n + 2) - 1
-Al hacer las pruebas siempre se cumple esa relacion por ejemplo fibo(8) - 1 = 20 = sfib(6)
+Al hacer las pruebas con distintos valores siempre se cumple esa relacion por ejemplo fibo(8) - 1 = 20 = sfib(6)
 
     zfib:    Z => Z zfib := fn(Z n) => Z -> fibo(n + 2) - 1;
 
-3. Yo opino que zfib no es mas rapido que sfib porque aunque sfib sea con recursion y este repitiendo el procceso de calcular sfib n cantidad de veces, 
-zfib tiene que abrir una rama mas grande de fibonacci, lo cual requeriria un mayor procesamiento. Otra vez con el mismo ejemplo, 
-mientras que sfib(6) = sfib(5) + fibo(6) donde tiene que calcular desde sfib(5) hasta llegar a sfib(0) con recursion para llegar al resultado de sfib(6), 
-pero con zfib(6) haria fib(8) - 1 que aunque suene a menos proceso es mas largo porque tiene que ir ramificandose como fibo(7) + fibo(6) y cada uno de estos se ramificaria de la misma forma.
+3. No, aunque zfib parece hacer menos trabajo porque solo llama una vez a fibo, realmente debe calcular fibo(n + 2), y esa función se va dividiendo en muchas llamadas más pequeñas.
+Por ejemplo, para zfib(6) se debe calcular fibo(8), que se divide en fibo(7) + fibo(6), y estos vuelven a dividirse de la misma forma. sfib(6), en cambio, 
+va calculando varios Fibonacci más pequeños. Por esto, zfib simplifica mucho la fórmula, pero no necesariamente hace menos trabajo que sfib.
