@@ -3,7 +3,7 @@
 
 - OpenAI — GPT-5.6 Sol: Actuó como desarrollador y auditor de código. Su función fue transcribir las directrices y estrategias previamente definidas al código final, encargándose de la implementación en TypeScript, la integración en React y la maquetación estética (CSS).
 
-Explicación del algoritmo de procesamiento de los datos de los sensores:
+### Explicación del algoritmo de procesamiento de los datos de los sensores:
 El funcionamiento de este algoritmo consiste principalmente en encontrar primero un centro robusto calculando la mediana del conjunto de lecturas de los microsensores. A partir de esa mediana, define un radio de tolerancia del 10 % y descarta las lecturas que quedan fuera de ese rango, considerándolas outliers. Luego calcula el promedio únicamente con las lecturas que permanecen dentro del radio de tolerancia. Este proceso se realiza de forma independiente para cada sensor.
 
 
