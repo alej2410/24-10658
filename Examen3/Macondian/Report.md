@@ -1,4 +1,4 @@
-Modelos de IA usados:
+# Modelos de IA usados:
 - Google Gemini 3.1 Pro Razonamiento extendido: Actuó como arquitecto de software y tutor analítico. Se encargó de la ingeniería inversa del flujo de datos, el diseño de la arquitectura reactiva, la formulación de la estrategia matemática (análisis de complejidad Big-O) y la preparación argumentativa para la defensa oral.
 
 - OpenAI — GPT-5.6 Sol: Actuó como desarrollador y auditor de código. Su función fue transcribir las directrices y estrategias previamente definidas al código final, encargándose de la implementación en TypeScript, la integración en React y la maquetación estética (CSS).
