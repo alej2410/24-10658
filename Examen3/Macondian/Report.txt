@@ -7,8 +7,8 @@ Explicación del algoritmo de procesamiento de los datos de los sensores:
 El funcionamiento de este algoritmo consiste principalmente en encontrar primero un centro robusto calculando la mediana del conjunto de lecturas de los microsensores. A partir de esa mediana, define un radio de tolerancia del 10 % y descarta las lecturas que quedan fuera de ese rango, considerándolas outliers. Luego calcula el promedio únicamente con las lecturas que permanecen dentro del radio de tolerancia. Este proceso se realiza de forma independiente para cada sensor.
 
 
-
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 Funcionalidad adicional: benchmark de Quickselect vs Sort
 
 Además del procesamiento requerido para los sensores, se agregó el comando ".bench" como una herramienta de prueba de rendimiento. Esta funcionalidad no forma parte del comportamiento básico solicitado para el simulador, sino que fue incorporada para comprobar experimentalmente cuál estrategia de cálculo de la mediana era más conveniente para este problema.
