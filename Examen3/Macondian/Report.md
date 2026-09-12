@@ -10,7 +10,7 @@ El funcionamiento de este algoritmo consiste principalmente en encontrar primero
 ____________________________________________________________________________________________________________________________________________________________________________________
 ____________________________________________________________________________________________________________________________________________________________________________________
 
-Funcionalidad adicional: benchmark de Quickselect vs Sort
+# Funcionalidad adicional: benchmark de Quickselect vs Sort
 
 Además del procesamiento requerido para los sensores, se agregó el comando ".bench" como una herramienta de prueba de rendimiento. Esta funcionalidad no forma parte del comportamiento básico solicitado para el simulador, sino que fue incorporada para comprobar experimentalmente cuál estrategia de cálculo de la mediana era más conveniente para este problema.
 
